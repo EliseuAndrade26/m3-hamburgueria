@@ -42,7 +42,7 @@ export function HeaderLogo() {
               </ButtonGreyMedium>
               <ButtonGreyMedium onClick={() => setShowModal(true)}>
                 <img src={cart} alt="" />
-                {currentSale.length && (
+                {currentSale.length > 0 && (
                   <div>
                     <span>{currentSale.length}</span>
                   </div>

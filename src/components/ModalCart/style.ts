@@ -17,7 +17,7 @@ export const StyledDiv = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 400px;
-    max-height: 361px;
+    max-height: 376px;
     margin: 0 15px;
     padding-bottom: 15px;
     border-radius: 4px;
@@ -45,8 +45,8 @@ export const StyledDiv = styled.div`
       padding: 10px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       gap: 10px;
+      overflow-y: scroll;
       box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);
     }
 
