@@ -54,6 +54,31 @@ export const StyledHeader = styled.header`
       button {
         display: flex;
         align-items: center;
+        width: 40px;
+
+        > div {
+          position: absolute;
+          z-index: 1;
+          top: 10px;
+          right: 50px;
+          display: inline;
+          border: none;
+          background-color: var(--color__primary);
+          width: 20px;
+          height: 20px;
+
+          @media (min-width: 1024px) {
+            top: 22px;
+            right: 150px;
+          }
+
+          > span {
+            position: absolute;
+            top: 0;
+            left: 5px;
+            color: var(--color__grey__0);
+          }
+        }
       }
 
       button:first-of-type {

@@ -41,11 +41,12 @@ export function UserProvider({ children }: iChildren) {
 
   async function createUser(dataForm: iCreateUserProps) {
     try {
-      await api.post("users", dataForm);
+      const response = await api.post("users", dataForm);
       toast.success("Usuário criado com sucesso!");
+      localStorage.setItem("HamKenzie:token", response.data.accessToken);
       setTimeout(() => {
-        navigate("/login");
-      }, 5000);
+        navigate("/home");
+      }, 1000);
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
@@ -61,7 +62,7 @@ export function UserProvider({ children }: iChildren) {
       localStorage.setItem("HamKenzie:token", response.data.accessToken);
       setTimeout(() => {
         navigate("/home");
-      }, 5000);
+      }, 1000);
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);

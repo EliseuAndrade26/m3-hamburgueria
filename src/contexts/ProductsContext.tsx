@@ -52,7 +52,7 @@ export function ProductsProvider({ children }: iChildren) {
     if (Number.isInteger(price)) {
       return `${price},00`;
     } else {
-      return price.toString().replace(".", ",");
+      return price.toFixed(2).toString().replace(".", ",");
     }
   }
 

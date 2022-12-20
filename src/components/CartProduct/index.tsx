@@ -8,7 +8,7 @@ interface iCartProductProps {
   name: string;
   id: number;
   price: number;
-  RemoveProduct: (id: number, price: number) => void;
+  RemoveProduct: (id: number, price: number, counter?: number) => void;
 }
 
 export function CartProduct({
@@ -35,6 +35,7 @@ export function CartProduct({
       setCounter(counter - 1);
     }
   }
+
   return (
     <StyledLi>
       <div>
@@ -50,7 +51,7 @@ export function CartProduct({
           </fieldset>
         </div>
       </div>
-      <button>
+      <button onClick={() => RemoveProduct(id, price, counter)}>
         <img src={trash} alt="" />
       </button>
     </StyledLi>

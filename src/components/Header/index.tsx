@@ -17,7 +17,7 @@ export function HeaderLogo() {
     filterMenuMobile,
     logout,
   } = useContext(ProductsContext);
-  const { setShowModal } = useContext(CartContext);
+  const { setShowModal, currentSale } = useContext(CartContext);
 
   return (
     <StyledHeader>
@@ -42,6 +42,11 @@ export function HeaderLogo() {
               </ButtonGreyMedium>
               <ButtonGreyMedium onClick={() => setShowModal(true)}>
                 <img src={cart} alt="" />
+                {currentSale.length && (
+                  <div>
+                    <span>{currentSale.length}</span>
+                  </div>
+                )}
               </ButtonGreyMedium>
               <ButtonGreyMedium onClick={logout}>
                 <img src={logoutIMG} alt="" />

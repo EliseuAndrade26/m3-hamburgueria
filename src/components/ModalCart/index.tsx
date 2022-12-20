@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { ProductsContext } from "../../contexts/ProductsContext";
 import { ButtonGreyLarge } from "../../styles/buttons";
 import { CartProduct } from "../CartProduct";
 import { StyledDiv } from "./style";
 
 export function ModalCart() {
+  const { integer } = useContext(ProductsContext);
+
   const { setShowModal, currentSale, cartTotal, setCurrentSale, setCartTotal } =
     useContext(CartContext);
 
@@ -13,9 +16,13 @@ export function ModalCart() {
     setCartTotal(0);
   }
 
-  function RemoveProduct(id: number, price: number) {
+  function RemoveProduct(id: number, price: number, counter?: number) {
     setCurrentSale(currentSale.filter((elem) => elem.id !== id));
-    setCartTotal(cartTotal - price);
+    if (counter) {
+      setCartTotal(cartTotal - price * counter);
+    } else {
+      setCartTotal(cartTotal - price);
+    }
   }
 
   return (
@@ -40,7 +47,7 @@ export function ModalCart() {
           </ul>
           <fieldset>
             <h4>Total</h4>
-            <span>R$ {cartTotal}</span>
+            <span>R$ {integer(cartTotal)}</span>
           </fieldset>
           <ButtonGreyLarge onClick={resetStatesCart}>
             Remover todos
